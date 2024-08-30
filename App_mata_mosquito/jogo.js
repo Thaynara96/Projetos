@@ -1,12 +1,13 @@
 
 var altura = 0
 var largura = 0
+var vidas = 1
 
 function ajustaTamanhoPalcoJogo(){
     altura = window.innerHeight
     largura = window.innerWidth
 
-    console.log(altura, largura)
+    console.log(largura, altura)
 }
 
 ajustaTamanhoPalcoJogo()
@@ -14,6 +15,22 @@ ajustaTamanhoPalcoJogo()
 //função necessario pois a imagem está no body e o arquivo js estão no head, sendo assim aparece erro
 
 function posicaoRandomica(){
+
+    // remover o mosquito anterior (caso exista, para que não fiquem varios na tela)
+    
+    if(document.getElementById('mosquito')) {
+        document.getElementById('mosquito').remove()
+        // cada vez que não clicar no mosquito perde uma vida
+        if (vidas > 3 ){
+            window.location.href = 'fim_de_jogo.html'
+        }
+        else {
+            document.getElementById('v' + vidas).src = "imagens/coracao_vazio.png"
+
+			vidas++
+        }
+    }
+
     // variavel para que o mosquito apareça dentro do limite da pagina
     // -90 é para que a imagem não passe do limite
 
@@ -35,6 +52,10 @@ function posicaoRandomica(){
     mosquito.style.left = posicaoX + 'px'
     mosquito.style.top = posicaoY + 'px'
     mosquito.style.position = 'absolute'
+    mosquito.id = 'mosquito'
+    mosquito.onclick = function() {
+        this.remove()
+    }
 
     document.body.appendChild(mosquito)
 

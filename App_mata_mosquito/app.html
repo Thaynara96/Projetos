@@ -12,8 +12,25 @@
 
 <body onresize="ajustaTamanhoPalcoJogo()"> 
 
-    <script>
-        posicaoRandomica()
+   <div class="painel">
+        <div class="vidas">
+            <img id="v1" src="imagens/coracao_cheio.png" />
+			<img id="v2" src="imagens/coracao_cheio.png" />
+			<img id="v3" src="imagens/coracao_cheio.png" />
+        </div>
+
+        <div class="cronometro">
+            Tempo restante: ?
+        </div>
+        
+    </div>
+   
+   <script>
+        // função para que o mosquito apareça a cada 1seg na tela
+        setInterval(function(){
+            posicaoRandomica()
+        }, 2000)
+        
     </script>
 </body>
 
