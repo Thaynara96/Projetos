@@ -20,16 +20,19 @@
         </div>
 
         <div class="cronometro">
-            Tempo restante: ?
+            Tempo restante: <span id="cronometro"></span>
         </div>
         
     </div>
    
    <script>
+
+        document.getElementById ('cronometro').innerHTML = tempo
+
         // função para que o mosquito apareça a cada 1seg na tela
-        setInterval(function(){
+        var criaMosquito = setInterval(function(){
             posicaoRandomica()
-        }, 2000)
+        }, criaMosquitoTempo)
         
     </script>
 </body>
